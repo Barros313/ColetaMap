@@ -6,8 +6,7 @@ import { StyleSheet } from 'react-native';
 
 const Drawer = createDrawerNavigator();
 
-import Profile from './screens/Profile';
-import Map from './screens/Map';
+import { Map, Profile } from './screens/main';
 
 export default function SidebarMenu() {
     return (
