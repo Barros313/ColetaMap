@@ -13,14 +13,17 @@ export default function Login({ onLogin, onRegister }) {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, password }),
             });
+
             const data = await response.json();
-            if (data.success) {
-                onLogin();
-            } else {
-                Alert.alert('Login Failed', data.message);
+
+            if (!response.ok) {
+                Alert.alert('Login Failed', data.message || 'An error occurred');
+                return;
             }
+
+            onLogin();
         } catch (error) {
-            Alert.alert('Error', 'Something went wrong. Please try again.');
+            Alert.alert('Error', `Something went wrong. ${error}`);
         }
     };
 
