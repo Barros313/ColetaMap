@@ -52,7 +52,7 @@ export default function Map() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`http://192.168.1.26:8000/pontos/data`);
+                const response = await axios.get(`${process.env.EXPO_PUBLIC_BACKEND_ADDRESS}/pontos/data`);
                 setPontosColeta(response.data);
             } catch(error) {
                 console.error(error);
