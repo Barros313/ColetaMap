@@ -1,13 +1,19 @@
+import React, { useState } from "react";
 import { StyleSheet, Text, View } from 'react-native';
 
-// import Map from './components/Map';
-import SidebarMenu from './components/SidebarMenu';
+import MainComponent from './components/MainComponent';
 import Authentication from "./components/Authentication";
 
 export default function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
   return (
     <>
-      <Authentication />
+      {isAuthenticated ? (
+        <MainComponent />
+      ) : (
+        <Authentication onLogin={() => setIsAuthenticated(true)}/>
+      )}
     </>
   );
 }

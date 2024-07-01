@@ -8,7 +8,7 @@ const Drawer = createDrawerNavigator();
 
 import { Map, Profile } from './screens/main';
 
-export default function SidebarMenu() {
+export default function MainComponent() {
     return (
         <NavigationContainer>
             <Drawer.Navigator initialRouteName="Map">
