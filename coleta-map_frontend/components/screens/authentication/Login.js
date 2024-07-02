@@ -21,7 +21,10 @@ export default function Login({ onLogin, onRegister }) {
                 return;
             }
 
-            onLogin();
+            console.log("Logged in: ", data.user);
+
+
+            onLogin(data.user);
         } catch (error) {
             Alert.alert('Error', `Something went wrong. ${error}`);
         }

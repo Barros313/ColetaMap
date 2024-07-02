@@ -6,13 +6,21 @@ import Authentication from "./components/Authentication";
 
 export default function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [user, setUser] = useState(null);
+
+  const handleLogin = (userData) => {
+    setUser(userData);
+
+    setIsAuthenticated(true);
+  }
+
 
   return (
     <>
       {isAuthenticated ? (
-        <MainComponent />
+        <MainComponent user={user} />
       ) : (
-        <Authentication onLogin={() => setIsAuthenticated(true)}/>
+        <Authentication onLogin={handleLogin} />
       )}
     </>
   );

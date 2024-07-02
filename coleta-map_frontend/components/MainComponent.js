@@ -7,13 +7,14 @@ import { StyleSheet } from 'react-native';
 const Drawer = createDrawerNavigator();
 
 import { Map, Profile } from './screens/main';
+import {useEffect} from "react";
 
-export default function MainComponent() {
+export default function MainComponent({ user }) {
     return (
         <NavigationContainer>
             <Drawer.Navigator initialRouteName="Map">
                 <Drawer.Screen name="Map" component={Map} />
-                <Drawer.Screen name="Profile" component={Profile} />
+                <Drawer.Screen name="Profile" component={Profile} initialParams={{ user: user }} />
             </Drawer.Navigator>
         </NavigationContainer>
     );
