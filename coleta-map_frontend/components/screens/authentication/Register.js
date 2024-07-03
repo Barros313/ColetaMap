@@ -1,6 +1,6 @@
 // components/Register.js
 import React, { useState } from 'react';
-import {StyleSheet, Text, TextInput, View, Button, Alert, TouchableOpacity, Image} from 'react-native';
+import {StyleSheet, Text, TextInput, View, Alert, TouchableOpacity, Image} from 'react-native';
 
 export default function Register({ onRegisterSuccess, onBackToLogin }) {
     const [username, setUsername] = useState('');
@@ -60,11 +60,11 @@ export default function Register({ onRegisterSuccess, onBackToLogin }) {
             </View>
 
             <TouchableOpacity onPress={handleRegister} style={styles.button} >
-                <Text style={styles.buttonText}> Cadastrar </Text>
+                <Text> Cadastrar </Text>
             </TouchableOpacity>
 
             <TouchableOpacity onPress={onBackToLogin} style={styles.button} >
-                <Text style={styles.buttonText}> Entrar com conta existente </Text>
+                <Text> Entrar com conta existente </Text>
             </TouchableOpacity>
 
 

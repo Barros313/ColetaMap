@@ -1,7 +1,7 @@
-import {Button, Image, StyleSheet, Text, View} from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import * as React from "react";
 
-export default function Profile({ route, navigation }) {
+export default function Profile({ route }) {
     const { user, onLogout } = route.params;
 
     return (
@@ -17,7 +17,9 @@ export default function Profile({ route, navigation }) {
             <Text style={styles.label}> Email: </Text>
             <Text style={styles.value}> {user.email} </Text>
 
-            <Button title="Logout" onPress={onLogout} />
+            <TouchableOpacity onPress={onLogout} style={styles.button} >
+                <Text> Sair </Text>
+            </TouchableOpacity>
 
         </View>
     );
@@ -46,5 +48,14 @@ const styles = StyleSheet.create({
         width: 200,
         height: 200,
         borderRadius: 100
-    }
+    },
+    button: {
+        width: "80%",
+        borderRadius: 25,
+        height: 50,
+        alignItems: "center",
+        justifyContent: "center",
+        marginTop: 40,
+        backgroundColor: "#1cff14",
+    },
 });

@@ -55,11 +55,11 @@ export default function Login({ onLogin, onRegister }) {
             </View>
 
             <TouchableOpacity onPress={handleLogin} style={styles.button} >
-                <Text style={styles.buttonText}> Entrar </Text>
+                <Text> Entrar </Text>
             </TouchableOpacity>
 
             <TouchableOpacity onPress={onRegister} style={styles.button} >
-                <Text style={styles.buttonText}> Cadastrar-se </Text>
+                <Text> Cadastrar-se </Text>
             </TouchableOpacity>
 
         </View>
