@@ -14,11 +14,16 @@ export default function App() {
     setIsAuthenticated(true);
   }
 
+  const handleLogout = () => {
+    setUser(null);
+    setIsAuthenticated(false);
+  }
+
 
   return (
     <>
       {isAuthenticated ? (
-        <MainComponent user={user} />
+        <MainComponent user={user} onLogout={handleLogout} />
       ) : (
         <Authentication onLogin={handleLogin} />
       )}
