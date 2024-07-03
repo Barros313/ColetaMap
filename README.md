@@ -58,10 +58,29 @@ Após instalar as dependências, configure as variáveis do ambiente que estão 
     | JWT_EXAMPLE_KEY | Chave secreta para criptografar senhas utilizando o Javascript Web Token | Chave HS256 (muito extensa para mostrar aqui) |
     | PORT            | Porta para utilizar o servidor do backend                                | 8000                                          |
 
-3. Preencha o `.env` do frontend com os seguintes valores:
+
+3. No backend, rode o script para baixar os dados da prefeitura de recife:
+
+``` 
+node createDatabase.js 
+```
+
+4. Preencha o `.env` do frontend com os seguintes valores:
    
     | Campo                       | Descrição                                                                               | Exemplo                 |
     |-----------------------------|-----------------------------------------------------------------------------------------|-------------------------|
     | EXPO_PUBLIC_BACKEND_ADDRESS | Endereço do backend local composto pelo endereço de ipv4 + a porta utilizada no backend | http://192.168.0.0:8000 |
 
+* É possível ver o seu endereço IPV4 utilizando o comando `ipconfig` no terminal de comando
 
+### Inicializando o ambiente
+
+Após baixar os arquivos e configurar o ambiente resta apenas ligar os servidores:
+
+1. No terminal do backend rode `npm start`
+2. No terminal do frontend rode `npx expo start`
+3. Abra o app Expo GO no seu celular e escaneie o QR Code apresentado no terminal do frontend
+
+* Caso tenha Android Studio configurado no seu computador é conectar o celular no seu computador utilizando um cabo USB e rodando `npx expo start --localhost --android` no terminal do frontend, é preciso ter acesso de desenvolvedor no celular Android e ter a permissão USB Debugger ativado!
+
+    
