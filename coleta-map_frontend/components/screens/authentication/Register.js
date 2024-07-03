@@ -1,6 +1,6 @@
 // components/Register.js
 import React, { useState } from 'react';
-import { StyleSheet, Text, TextInput, View, Button, Alert } from 'react-native';
+import {StyleSheet, Text, TextInput, View, Button, Alert, TouchableOpacity, Image} from 'react-native';
 
 export default function Register({ onRegisterSuccess, onBackToLogin }) {
     const [username, setUsername] = useState('');
@@ -28,28 +28,46 @@ export default function Register({ onRegisterSuccess, onBackToLogin }) {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Register</Text>
-            <TextInput
-                style={styles.input}
-                placeholder="Username"
-                value={username}
-                onChangeText={setUsername}
-            />
-            <TextInput
-                style={styles.input}
-                placeholder="Email"
-                value={email}
-                onChangeText={setEmail}
-            />
-            <TextInput
-                style={styles.input}
-                placeholder="Password"
-                secureTextEntry
-                value={password}
-                onChangeText={setPassword}
-            />
-            <Button title="Register" onPress={handleRegister} />
-            <Button title="Back to Login" onPress={onBackToLogin} />
+
+            <Image source={require('../../../assets/app-logo.jpeg')} style={styles.image} />
+
+            <View style={styles.inputView}>
+                <TextInput
+                    style={styles.input}
+                    placeholder="Nome de usuário"
+                    value={username}
+                    onChangeText={setUsername}
+                />
+            </View>
+
+            <View style={styles.inputView}>
+                <TextInput
+                    style={styles.input}
+                    placeholder="Email"
+                    value={email}
+                    onChangeText={setEmail}
+                />
+            </View>
+
+            <View style={styles.inputView}>
+                <TextInput
+                    style={styles.input}
+                    placeholder="Senha"
+                    secureTextEntry
+                    value={password}
+                    onChangeText={setPassword}
+                />
+            </View>
+
+            <TouchableOpacity onPress={handleRegister} style={styles.button} >
+                <Text style={styles.buttonText}> Cadastrar </Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={onBackToLogin} style={styles.button} >
+                <Text style={styles.buttonText}> Entrar com conta existente </Text>
+            </TouchableOpacity>
+
+
         </View>
     );
 }
@@ -57,20 +75,38 @@ export default function Register({ onRegisterSuccess, onBackToLogin }) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: '#fff',
         justifyContent: 'center',
         alignItems: 'center',
         padding: 16,
     },
-    title: {
-        fontSize: 24,
-        marginBottom: 16,
+    image: {
+        width: 200,
+        height: 200,
+        borderRadius: 40,
+        marginBottom: 40,
+    },
+    inputView: {
+        backgroundColor: "#ccffc0",
+        borderRadius: 30,
+        width: "70%",
+        height: 45,
+        marginBottom: 20,
+        alignItems: "center",
     },
     input: {
-        width: '100%',
-        padding: 8,
-        marginBottom: 8,
-        borderWidth: 1,
-        borderColor: '#ccc',
-        borderRadius: 4,
+        height: 50,
+        flex: 1,
+        padding: 10,
+        marginLeft: 20,
+    },
+    button: {
+        width: "80%",
+        borderRadius: 25,
+        height: 50,
+        alignItems: "center",
+        justifyContent: "center",
+        marginTop: 40,
+        backgroundColor: "#1cff14",
     },
 });

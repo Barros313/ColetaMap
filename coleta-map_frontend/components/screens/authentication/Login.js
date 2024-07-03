@@ -47,7 +47,7 @@ export default function Login({ onLogin, onRegister }) {
             <View style={styles.inputView}>
                 <TextInput
                     style={styles.input}
-                    placeholder="Password"
+                    placeholder="Senha"
                     secureTextEntry
                     value={password}
                     onChangeText={setPassword}
@@ -103,5 +103,4 @@ const styles = StyleSheet.create({
         marginTop: 40,
         backgroundColor: "#1cff14",
     },
-
 });
