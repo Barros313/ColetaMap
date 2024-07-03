@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { StyleSheet, View } from 'react-native';
+import {Linking, StyleSheet, View} from 'react-native';
 
 import MapView, { Marker } from "react-native-maps";
 import * as Location from 'expo-location';
@@ -71,6 +71,12 @@ export default function Map() {
         }
     }, [location]);
 
+    const openInGoogleMaps = (latitude, longitude) => {
+        const url = `https://www.google.com/maps/dir/?api=1&destination=${latitude},${longitude}&travelmode=driving`;
+        Linking.openURL(url)
+            .catch(error => console.error('Error opening Google Maps', error));
+    }
+
     return (
         <View style={styles.container}>
             <Toast />
@@ -86,8 +92,10 @@ export default function Map() {
                     <Marker
                         key={index}
                         coordinate={{ latitude: point.latitude, longitude: point.longitude }}
-                        title={point.tiporesiduo}
-                        description={`${point.endereco}, ${point.bairro}`}
+                        title={point.observacao}
+                        description={`Endereço: ${point.endereco}, ${point.bairro}\n Tipos de resíduo: ${point.tiporesiduo}`}
+                        pinColor={'#00FF00'}
+                        onCalloutPress={() => openInGoogleMaps(point.latitude, point.longitude)}
                     />
                 ))}
             </MapView>
